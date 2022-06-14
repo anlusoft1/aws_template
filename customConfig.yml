@@ -3,7 +3,7 @@ serverless-offline:
 stage: ${opt:stage, self:provider.stage}
 stg_cmo: ${opt:stage, 'desa'}
 stg_cmo_upper: ${self:custom.env.${self:custom.stg_cmo}}
-nom_project: ANLUTESTV1 # cambiar tambien serveless service linea 1-
+nom_project: ANLUTESTV3 # cambiar tambien serveless service linea 1-
 nom_api_rest: ${self:custom.region-name.${self:custom.stg_cmo}}NET${self:custom.stg_cmo_upper}APIREST${self:custom.nom_project}
 nom_lambda: ${self:custom.region-name.${self:custom.stg_cmo}}COM${self:custom.stg_cmo_upper}LMB${self:custom.nom_project}
 nom_dynamodb: ${self:custom.region-name.${self:custom.stg_cmo}}COM${self:custom.stg_cmo_upper}TBL${self:custom.nom_project}
@@ -16,12 +16,6 @@ region:
     desa: us-east-1 
 region-name: 
     desa: UE2
-serviceName: ${self:}
-project: BACK ANLU
-domain: ANLUSOFT
-responsable: MIGUEL RODRIGUEZ B.
-status: PROYECTO
-module: BACK ANLU
 security-group-id:
     desa: sg-6862af17
 bucketDeploy: 

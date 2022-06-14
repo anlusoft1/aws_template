@@ -4,7 +4,7 @@ const parse = async (event, context) => {
    
         return {
             "statusCode": 200,
-            "body":JSON.stringify({"salida":"exito"}),
+            "body":JSON.stringify({"salida":"exito,"}),
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
