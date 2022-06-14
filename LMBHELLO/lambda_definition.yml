@@ -1,0 +1,36 @@
+getHello:
+    handler: LMBHELLO/index/index.handler
+    name: "${self:custom.nom_lambda}HELLO001"
+    description: LAMDA DE HELLO
+    timeout: 27 # maximo para terminar el proceso 14 min
+    package:
+      include:
+      - LMBHELLO/index/**
+    environment:
+      S3_BUCKET: "${self:custom.bucketS3.${self:custom.stg_cmo}}"
+    events:
+      - http:
+          path: hello
+          method: post
+          produces:
+            - "application/json"
+          responses:
+            200:
+              description: "200 response"
+              schema:
+                $ref: "#/definitions/Empty"
+              headers:
+                Access-Control-Allow-Origin:
+                  type: "string" 
+          cors: 
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Origin
+              - Access-Control-Allow-Credentials
+              - User
