@@ -1,0 +1,26 @@
+getHello2:
+    handler: LMBHELLO2/index/index.handler
+    name: "${self:custom.nom_lambda}HELLO002"
+    description: LAMDA DE HELLO
+    timeout: 27 # maximo para terminar el proceso 14 min
+    package:
+      include:
+      - LMBHELLO2/index/**
+    environment:
+      S3_BUCKET: "${self:custom.bucketS3.${self:custom.stg_cmo}}"
+    events:
+      - http:
+          path: hello2
+          method: post
+          produces:
+            - "application/json"
+          responses:
+            200:
+              description: "200 response"
+              schema:
+                $ref: "#/definitions/Empty"
+              headers:
+                Access-Control-Allow-Origin:
+                  type: "string" 
+          cors: 
+            origin: '*'

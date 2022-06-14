@@ -46,6 +46,7 @@ package:
   exclude:
     - node_modules/**
     - LMBHELLO/**
+    - LMBHELLO2/**
     - ./**.json
     - ./**.yml
     - npm-cache/**
@@ -53,3 +54,4 @@ package:
     - Jenkinsfile
 functions:
   - ${file(LMBHELLO/lambda_definition.yml)}  
+  - ${file(LMBHELLO2/lambda_definition.yml)}  
